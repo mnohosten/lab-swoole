@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+inotifywait -r -m -e modify src/ | ./burst 5 'docker service update mnohosten_phpswoole --force'

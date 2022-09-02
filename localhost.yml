@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  phpswoole:
+    image: krizius/php:8.1-swoole
+    working_dir: /app
+    volumes:
+      - .:/app
+    command:
+      - main.php
+    networks:
+      - inbound
+      - persistence
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=inbound
+        - traefik.http.routers.phpswoole.rule=Host(`phpswoole.localhost`)
+        - traefik.http.routers.phpswoole.entrypoints=web
+        - traefik.http.routers.phpswoole.service=phpswoole
+        - traefik.http.services.phpswoole.loadbalancer.server.port=9501
+      restart_policy:
+        condition: on-failure
+
+networks:
+  inbound:
+    external: true
+  persistence:
+    external: true
