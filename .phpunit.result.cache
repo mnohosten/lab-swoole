@@ -1,0 +1,1 @@
+{"version":1,"defects":{"App\\Kernel\\Router\\RouteCollectionFactoryTest::testCreate":3,"App\\Kernel\\Router\\DispatcherFactoryTest::testCreate":5},"times":{"App\\Kernel\\Router\\RouteCollectionFactoryTest::testCreate":0.002,"App\\Kernel\\Router\\DispatcherFactoryTest::testCreate":0.002}}
